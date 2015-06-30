@@ -27,9 +27,9 @@ Also add the container's styles to your less file:
 And then you can use it like this:
 
 ```html
-<koco-multimedia-container params="click: selectImage, multimedia: image, remove: unselectImage, removeTitle: 'remove this image', defaultImageUrl: settings.defaultImageUrl">
+<multimedia-container params="click: selectImage, multimedia: image, remove: unselectImage, removeTitle: 'remove this image', defaultImageUrl: settings.defaultImageUrl">
     <img data-bind="image: image" />
-</koco-multimedia-container>
+</multimedia-container>
 ```
 
 Pass a removeTitle (which will be used as the alt for the X button to remove the image), and a defaultImageUrl for use when we don't have an image (for example if you remove it!). defaultImageUrl can be a full url or path.
