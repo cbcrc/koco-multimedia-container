@@ -30,4 +30,4 @@ And then you can use it like this:
 </koco-multimedia-container>
 ```
 
-Pass a removeTitle (which will be used as the alt for the X button to remove the image), and a defaultImageUrl for use when we don't have an image (for example if you remove it!). defaultImageUrl can be a full url, but url utilities will be used to attempt to resolve it to a full url so it can also be a path.
+Pass a removeTitle (which will be used as the alt for the X button to remove the image), and a defaultImageUrl for use when we don't have an image (for example if you remove it!). defaultImageUrl can be a full url or path.
