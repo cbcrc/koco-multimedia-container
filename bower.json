@@ -1,0 +1,28 @@
+{
+  "name": "koco-multimedia-container",
+  "version": "0.1.0",
+  "homepage": "https://github.com/cbcrc/koco-multimedia-container",
+  "authors": [
+    "David D'Amico <david.damico@cbc.ca>"
+  ],
+  "description": "Container for different types of multimedia content.",
+  "main": "src/multimedia-container-ui.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "koco"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "knockout": "^3.3.0",
+    "koco-disposer": "^0.1.0"
+  }
+}
