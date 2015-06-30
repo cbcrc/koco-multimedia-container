@@ -1,5 +1,5 @@
 define([
-        'text!./koco-multimedia-container.html',
+        'text!./multimedia-container.html',
         'knockout',
         'disposer'
     ],
