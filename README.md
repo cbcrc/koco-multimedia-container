@@ -13,14 +13,16 @@ This is a shared module that is used in many other modules. Register it in your 
 ```javascript
         Components.prototype.registerComponents = function() {
             ...
-            koUtilities.registerComponent('koco-multimedia-container');
+            koUtilities.registerComponent('multimedia-container', {
+                basePath: 'bower_components/koco-multimedia-container/src/multimedia-container'
+            });
             ...
         };
 ```
 
 Also add the container's styles to your less file:
 
-`@import "../bower_components/koco-multimedia-container/src/koco-multimedia-container.less";`
+`@import "../bower_components/koco-multimedia-container/src/multimedia-container.less";`
 
 And then you can use it like this:
 
