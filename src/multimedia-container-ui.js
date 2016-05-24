@@ -1,72 +1,68 @@
-define([
-        'text!./multimedia-container.html',
-        'knockout',
-        'disposer'
-    ],
-    function(template, ko, KoDisposer) {
-        'use strict';
+import template from 'text!./multimedia-container.html';
+import ko from 'knockout';
+import KoDisposer from 'disposer';
 
-        var MultimediaContainerViewModel = function(params /*, componentInfo */ ) {
-            var self = this;
 
-            var rawParams = params.$raw;
+var MultimediaContainerViewModel = function(params /*, componentInfo */ ) {
+    var self = this;
 
-            self.multimedia = params.multimedia;
-            self.defaultImageUrl = params.defaultImageUrl;
-            self.koDisposer = new KoDisposer();
+    var rawParams = params.$raw;
 
-            if ('remove' in params) {
-                self.remove = params.remove;
-            } else {
-                self.remove = function() {};
-            }
+    self.multimedia = params.multimedia;
+    self.defaultImageUrl = params.defaultImageUrl;
+    self.koDisposer = new KoDisposer();
 
-            if ('click' in params) {
-                self.click = params.click;
-            } else {
-                self.click = null;
-            }
+    if ('remove' in params) {
+        self.remove = params.remove;
+    } else {
+        self.remove = function() {};
+    }
 
-            self.removeTitle = params.removeTitle;
+    if ('click' in params) {
+        self.click = params.click;
+    } else {
+        self.click = null;
+    }
 
-            self.canRemove = ko.pureComputed(function() {
-                var canRemove = true;
+    self.removeTitle = params.removeTitle;
 
-                if (!('remove' in params)) {
-                    return false;
-                }
+    self.canRemove = ko.pureComputed(function() {
+        var canRemove = true;
 
-                if ('canRemove' in params) {
-                    canRemove = ko.unwrap(params.canRemove);
-                }
+        if (!('remove' in params)) {
+            return false;
+        }
 
-                return ko.unwrap(self.multimedia) && canRemove;
-            });
-            self.koDisposer.add(self.canRemove);
+        if ('canRemove' in params) {
+            canRemove = ko.unwrap(params.canRemove);
+        }
 
-            self.showDefaultImage = ko.pureComputed(function() {
-                return params.defaultImageUrl && !ko.unwrap(self.multimedia);
-            });
-            self.koDisposer.add(self.showDefaultImage);
-
-            self.visible = ko.pureComputed(function() {
-                return !(!self.showDefaultImage() && !ko.unwrap(self.multimedia));
-            });
-            self.koDisposer.add(self.visible);
-        };
-
-        MultimediaContainerViewModel.prototype.dispose = function() {
-            var self = this;
-
-            self.koDisposer.dispose();
-        };
-
-        return {
-            viewModel: {
-                createViewModel: function(params, componentInfo) {
-                    return new MultimediaContainerViewModel(params, componentInfo);
-                }
-            },
-            template: template
-        };
+        return ko.unwrap(self.multimedia) && canRemove;
     });
+    self.koDisposer.add(self.canRemove);
+
+    self.showDefaultImage = ko.pureComputed(function() {
+        return params.defaultImageUrl && !ko.unwrap(self.multimedia);
+    });
+    self.koDisposer.add(self.showDefaultImage);
+
+    self.visible = ko.pureComputed(function() {
+        return !(!self.showDefaultImage() && !ko.unwrap(self.multimedia));
+    });
+    self.koDisposer.add(self.visible);
+};
+
+MultimediaContainerViewModel.prototype.dispose = function() {
+    var self = this;
+
+    self.koDisposer.dispose();
+};
+
+export default {
+    viewModel: {
+        createViewModel: function(params, componentInfo) {
+            return new MultimediaContainerViewModel(params, componentInfo);
+        }
+    },
+    template: template
+};
