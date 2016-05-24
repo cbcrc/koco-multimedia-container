@@ -1,0 +1,18 @@
+<!-- ko if: visible -->
+<div class="thumbnail multimedia" data-bind="click: click ? click.bind($parent) : null, css: { active: !!click }">
+    <!-- ko if: canRemove -->
+    <a href="#" data-bind="click: remove.bind($parent), clickBubble: false, attr: { title: removeTitle }" class="btn btn-danger deleteImage">
+        <i class="fa fa-remove"></i>
+    </a>
+    <!--/ko-->
+    <!-- ko if: multimedia -->
+    <!-- ko template: { nodes: $componentTemplateNodes, data: $parent } -->
+    <!-- /ko -->
+    <!--/ko-->
+    <!-- ko if: showDefaultImage -->
+    <div class="default">
+        <img data-bind="attr:{ src: defaultImageUrl }" class="img-responsive" />
+    </div>
+    <!-- /ko -->
+</div>
+<!-- /ko -->

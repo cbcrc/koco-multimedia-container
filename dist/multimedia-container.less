@@ -1,0 +1,43 @@
+multimedia-container {
+    .deleteImage {
+        position: absolute;
+        right: -15px;
+        top: -16px;
+        padding: 5px 10px;
+        z-index: 10;
+    }
+    .document-edit {
+        .thumbnails > li {
+            margin-left: 20px;
+        }
+    }
+    .thumbnail.multimedia.small {
+        position: relative;
+        height: 198px;
+        width: 352px;
+    }
+    .thumbnail.multimedia {
+        > .default {
+            background-color: #ccc;
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        max-width: 490px;
+        position: relative;
+    }
+
+    .thumbnail.multimedia.active:hover, .thumbnail.multimedia.active:focus {
+        border-color: #0088cc;
+        cursor: pointer;
+    }
+    .thumbnail.multimedia.centered {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
