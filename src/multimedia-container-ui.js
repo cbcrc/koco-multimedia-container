@@ -1,4 +1,3 @@
-import template from 'text!./multimedia-container.html';
 import ko from 'knockout';
 import KoDisposer from 'koco-disposer';
 
