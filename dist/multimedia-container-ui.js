@@ -4,17 +4,13 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _multimediaContainer = require('text!./multimedia-container.html');
-
-var _multimediaContainer2 = _interopRequireDefault(_multimediaContainer);
-
 var _knockout = require('knockout');
 
 var _knockout2 = _interopRequireDefault(_knockout);
 
-var _disposer = require('disposer');
+var _kocoDisposer = require('koco-disposer');
 
-var _disposer2 = _interopRequireDefault(_disposer);
+var _kocoDisposer2 = _interopRequireDefault(_kocoDisposer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25,7 +21,7 @@ var MultimediaContainerViewModel = function MultimediaContainerViewModel(params 
 
     self.multimedia = params.multimedia;
     self.defaultImageUrl = params.defaultImageUrl;
-    self.koDisposer = new _disposer2.default();
+    self.koDisposer = new _kocoDisposer2.default();
 
     if ('remove' in params) {
         self.remove = params.remove;
@@ -79,5 +75,5 @@ exports.default = {
             return new MultimediaContainerViewModel(params, componentInfo);
         }
     },
-    template: _multimediaContainer2.default
+    template: template
 };

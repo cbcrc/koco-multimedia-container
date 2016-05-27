@@ -1,6 +1,5 @@
-import template from 'text!./multimedia-container.html';
 import ko from 'knockout';
-import KoDisposer from 'disposer';
+import KoDisposer from 'koco-disposer';
 
 
 var MultimediaContainerViewModel = function(params /*, componentInfo */ ) {
